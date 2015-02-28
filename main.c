@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Arno <Arno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 20:42:07 by adebray           #+#    #+#             */
-/*   Updated: 2015/02/27 22:57:15 by adebray          ###   ########.fr       */
+/*   Updated: 2015/02/28 15:15:01 by Arno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,17 @@ int			main(void)
 	ft_signal();
 
 	array[0][2] = 10;
+	mvwprintw(stdscr, LINES / 2, COLS / 2 - 15, "Welcome to 2048. Press Space.\n");
+	wrefresh(stdscr);
 
 	int i = 0;
 	while (42)
 	{
+		timeout(-1);
+		int c = getch();
+		dprintf(2, "%d ", c);
 		ft_draw(array);
-		// ft_printf("%d\n", i);
-		usleep(800 * 100);
+		// usleep(800 * 100);
 		i += 1;
 	}
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   curse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Arno <Arno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:56:39 by adebray           #+#    #+#             */
-/*   Updated: 2015/02/27 23:46:31 by adebray          ###   ########.fr       */
+/*   Updated: 2015/02/28 15:08:38 by Arno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ void		ft_init()
 	initscr();
 	cbreak();
 	noecho();
+	nonl();
+	intrflush(stdscr, FALSE);
+	keypad(stdscr, TRUE);
+	curs_set(0);
 }
 
 void		ft_resize(int sig)
