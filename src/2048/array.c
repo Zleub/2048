@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   array.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Arno <Arno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:54:27 by adebray           #+#    #+#             */
-/*   Updated: 2015/02/27 23:13:39 by adebray          ###   ########.fr       */
+/*   Updated: 2015/02/28 15:24:48 by Arno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int			**ft_new(void)
 	{
 		if (!(array[i] = (int*)malloc(sizeof(int) * SIZE)))
 			return (NULL);
+		ft_bzero(array[i], sizeof(int) * SIZE);
 		i += 1;
 	}
 	return (array);
