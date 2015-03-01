@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 20:42:07 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 02:50:20 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 03:37:33 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			ft_create_number(t_env *env)
 	{
 		if (!(ft_check_availability(env)))
 			return (0);
-		ft_create_number(env);
+		return (ft_create_number(env));
 	}
 	else
 	{
@@ -72,8 +72,8 @@ int			ft_create_number(t_env *env)
 			env->array[x][y] = 4;
 		else
 			env->array[x][y] = 2;
-	}
 	return (1);
+	}
 }
 
 int			main(void)
@@ -100,5 +100,6 @@ int			main(void)
 		i += 1;
 	}
 	endwin();
+	ft_printf("You scored %d\n", env.score);
 	return (0);
 }

@@ -6,11 +6,51 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:56:39 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 02:42:20 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 03:54:02 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <game.h>
+
+int			ft_canplay(t_env *env)
+{
+	int		**array;
+	int		i;
+	int		j;
+
+	i = 0;
+	array = (int **)malloc(sizeof(int *) * SIZE);
+	while (i < SIZE)
+	{
+		j = 0;
+		array[i] = (int *)malloc(sizeof(int) * SIZE);
+		while (j < SIZE)
+		{
+			array[i][j] = env->array[i][j];
+			j += 1;
+		}
+		i += 1;
+	}
+
+	t_env	env_tmp;
+
+	env_tmp.array = array;
+	env_tmp.score = 0;
+
+	int		(*f[4])(t_env *);
+
+	f[0] = ft_down;
+	f[1] = ft_up;
+	f[2] = ft_left;
+	f[3] = ft_right;
+
+	if (!f[0](&env_tmp) && !f[1](&env_tmp)
+		&& !f[2](&env_tmp) && !f[3](&env_tmp))
+		return (0);
+	else
+		return (1);
+
+}
 
 int			ft_getch(t_env *env)
 {
@@ -22,18 +62,19 @@ int			ft_getch(t_env *env)
 	f[2] = ft_left;
 	f[3] = ft_right;
 	c = getch();
-	dprintf(2, "%d ", c);
 	if (c == ESC)
 		return (0);
 	else if (c == UP || c == DOWN || c == LEFT || c == RIGHT)
 	{
 		if (f[c - 258](env))
 		{
-			if (ft_create_number(env))
-				return (1);
-			else
+			if (!(ft_create_number(env)))
 				return (0);
+			else
+				return (1);
 		}
+		if (!(ft_canplay(env)))
+			return (0);
 	}
 	return (1);
 }
