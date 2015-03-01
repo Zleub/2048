@@ -6,13 +6,13 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:56:39 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 06:10:34 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 06:29:22 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <game.h>
 
-int			ft_test(int **array)
+static int	ft_test(int **array)
 {
 	int		(*f[4])(t_env *);
 	t_env	env_tmp;
@@ -30,7 +30,7 @@ int			ft_test(int **array)
 		return (1);
 }
 
-int			ft_canplay(t_env *env)
+static int	ft_canplay(t_env *env)
 {
 	int		**array;
 	int		i;
@@ -62,7 +62,7 @@ int			ft_canplay(t_env *env)
 	return (ret);
 }
 
-int			ft_getkey(t_env *env, int c)
+static int	ft_getkey(t_env *env, int c)
 {
 	int		(*f[4])(t_env *);
 

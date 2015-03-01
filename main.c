@@ -6,13 +6,13 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 20:42:07 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 03:37:33 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 06:28:10 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <game.h>
 
-int			ft_wincheck(void)
+static int	ft_wincheck(void)
 {
 	int		tmp;
 	int		winval;
@@ -28,12 +28,12 @@ int			ft_wincheck(void)
 	return (0);
 }
 
-int			ft_random(void)
+static int	ft_random(void)
 {
 	return (rand() % SIZE);
 }
 
-int			ft_check_availability(t_env *env)
+static int	ft_check_availability(t_env *env)
 {
 	int		i;
 	int		j;

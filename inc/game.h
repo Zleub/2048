@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 20:47:39 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 06:13:51 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 06:28:29 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int						ft_up(t_env *env);
 int						ft_down(t_env *env);
 int						ft_right(t_env *env);
 int						ft_create_number(t_env *env);
-int						ft_check_availability(t_env *env);
 
 /*
 ** init.c
@@ -65,13 +64,13 @@ int						ft_check_availability(t_env *env);
 
 void					ft_init(void);
 int						ft_welcome(t_env *env);
+void					ft_resize(int sig);
 
 /*
 ** curse.c
 */
 
 int						ft_getch(t_env *env);
-void					ft_resize(int sig);
 void					ft_draw(t_env *env);
 
 /*
@@ -79,7 +78,6 @@ void					ft_draw(t_env *env);
 */
 
 int						**ft_new(void);
-void					ft_print_array(int fd, int **array);
 int						ft_check_win(int **array);
 
 /*
