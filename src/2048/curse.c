@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:56:39 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 03:54:02 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 05:48:32 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ int			ft_canplay(t_env *env)
 	ret = ft_test(array);
 	i = 0;
 	while (i < SIZE)
+	{
 		free(array[i]);
+		i += 1;
+	}
 	free(array);
 	return (ret);
 }

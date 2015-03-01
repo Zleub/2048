@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 23:46:07 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 01:56:39 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 05:51:15 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void		ft_win(t_vec4 *win, int **array, int offset)
 	if (array[Y][X] > 0)
 		mvwprintw(caca, HEIGHT / 2, WIDTH / 2, "%d", array[Y][X]);
 	wrefresh(caca);
+	delwin(caca);
 }
 
 void		ft_score(t_vec4 *win, t_env *env)
@@ -38,4 +39,5 @@ void		ft_score(t_vec4 *win, t_env *env)
 	else
 		mvwprintw(caca, HEIGHT / 2, WIDTH / 2, "%d", env->score);
 	wrefresh(caca);
+	delwin(caca);
 }
