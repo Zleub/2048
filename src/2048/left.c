@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:34:31 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 02:31:22 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 03:00:57 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static int			ft_linetop(t_env *env, int y)
 			env->score += env->array[y][tmp];
 			env->array[y][x] = 0;
 			ret += 1;
-			// x += 1;
 		}
 		if (env->array[y][x] != 0)
 			tmp = x;

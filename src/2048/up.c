@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:39:25 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 02:31:23 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 03:00:49 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static int		ft_coltop(t_env *env, int y)
 			env->score += env->array[tmp][y];
 			env->array[x][y] = 0;
 			ret += 1;
-			// x += 1;
 		}
 		if (env->array[x][y] != 0)
 			tmp = x;

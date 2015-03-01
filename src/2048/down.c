@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:37:35 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 02:30:33 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 03:01:00 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static int		ft_coldown(t_env *env, int y)
 			env->score += env->array[tmp][y];
 			env->array[x][y] = 0;
 			ret += 1;
-			// x -= 1;
 		}
 		if (env->array[x][y] != 0)
 			tmp = x;
