@@ -6,22 +6,35 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:56:39 by adebray           #+#    #+#             */
-/*   Updated: 2015/02/28 18:00:21 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 02:16:04 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <game.h>
 
-void		ft_init()
+int			ft_getch(t_env *env)
 {
-	initscr();
-	cbreak();
-	noecho();
-	nonl();
-	intrflush(stdscr, FALSE);
-	keypad(stdscr, TRUE);
-	curs_set(0);
-	timeout(-1);
+	int		(*f[4])(t_env *);
+	int		c;
+
+	f[0] = ft_down;
+	f[1] = ft_up;
+	f[2] = ft_left;
+	f[3] = ft_right;
+	c = getch();
+	if (c == ESC)
+		return (0);
+	else if (c == UP || c == DOWN || c == LEFT || c == RIGHT)
+	{
+		if (f[c - 258](env))
+		{
+			if (ft_create_number(env))
+				return (1);
+			else
+				return (0);
+		}
+	}
+	return (1);
 }
 
 void		ft_resize(int sig)

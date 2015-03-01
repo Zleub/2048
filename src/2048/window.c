@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 23:46:07 by adebray           #+#    #+#             */
-/*   Updated: 2015/02/28 18:59:47 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 01:56:39 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void		ft_win(t_vec4 *win, int **array, int offset)
 {
 	WINDOW *caca;
 
-	caca = newwin(win->height, win->width, win->y * win->height + offset, win->x * win->width);
+	caca = newwin(HEIGHT, WIDTH, Y * HEIGHT + offset, X * WIDTH);
 	box(caca, '|', '~');
-	if (array[win->y][win->x] > 0)
-		mvwprintw(caca, win->height / 2, win->width / 2, "%d", array[win->y][win->x]);
+	if (array[Y][X] > 0)
+		mvwprintw(caca, HEIGHT / 2, WIDTH / 2, "%d", array[Y][X]);
 	wrefresh(caca);
 }
 
@@ -27,8 +27,8 @@ void		ft_score(t_vec4 *win, int score)
 {
 	WINDOW *caca;
 
-	caca = newwin(win->height, win->width, win->y * win->height, win->x * win->width);
+	caca = newwin(HEIGHT, WIDTH, Y * HEIGHT, X * WIDTH);
 	box(caca, '|', '~');
-	mvwprintw(caca, win->height / 2, win->width / 2, "%d", score);
+	mvwprintw(caca, HEIGHT / 2, WIDTH / 2, "%d", score);
 	wrefresh(caca);
 }

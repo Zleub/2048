@@ -14,7 +14,7 @@ NAME		=	lib2048.a
 LIB			=	2048
 HEADDIR		=	 ../../inc
 
-SRC			=	array.c curse.c window.c
+SRC			=	array.c curse.c window.c up.c down.c right.c left.c init.c
 
 OBJ			= $(subst .c,.o,$(SRC))
 
