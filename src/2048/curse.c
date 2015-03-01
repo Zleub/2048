@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   curse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Arno <Arno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:56:39 by adebray           #+#    #+#             */
-/*   Updated: 2015/02/28 15:17:37 by Arno             ###   ########.fr       */
+/*   Updated: 2015/02/28 18:00:21 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		ft_signal(void)
 	signal(SIGWINCH, ft_resize);
 }
 
-void		ft_draw(int **array)
+void		ft_draw(t_env *env)
 {
 	t_vec4	win;
 
@@ -49,7 +49,7 @@ void		ft_draw(int **array)
 	win.y = 0;
 	win.width = COLS;
 	win.height = 5;
-	ft_score(&win, 594);
+	ft_score(&win, env->score);
 	win.width = COLS / SIZE;
 	win.height = (LINES - 5) / SIZE;
 	while (win.x < SIZE)
@@ -57,7 +57,7 @@ void		ft_draw(int **array)
 		win.y = 0;
 		while (win.y < SIZE)
 		{
-			ft_win(&win, array, 5);
+			ft_win(&win, env->array, 5);
 			win.y += 1;
 		}
 		win.x += 1;
