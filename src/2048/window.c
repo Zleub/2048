@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 23:46:07 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 05:51:15 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 06:11:47 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void		ft_score(t_vec4 *win, t_env *env)
 	caca = newwin(HEIGHT, WIDTH, Y * HEIGHT, X * WIDTH);
 	box(caca, '|', '~');
 	if (env->win == 2)
-		mvwprintw(caca, HEIGHT / 2, WIDTH / 2 - 9,
-			"You win with %d points. Continue ?", env->score);
+		mvwprintw(caca, HEIGHT / 2, WIDTH / 2 - 20,
+			"You win with %d points. Continue ? (y|n)", env->score);
 	else if (env->win == 1)
 		mvwprintw(caca, HEIGHT / 2, WIDTH / 2 - 9,
 			"You win with %d points.", env->score);

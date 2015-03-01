@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:56:39 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 05:48:32 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 06:10:34 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,13 @@ int			ft_getkey(t_env *env, int c)
 	f[3] = ft_right;
 	if (f[c - 258](env))
 	{
+		if (ft_check_win(env->array) && env->win == 0)
+			env->win = 2;
 		if (!(ft_create_number(env)))
 			return (0);
 		else
 			return (1);
 	}
-	if (ft_check_win(env->array))
-		env->win = 2;
 	if (!(ft_canplay(env)))
 		return (0);
 	return (1);
