@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 20:42:07 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 02:34:46 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 02:50:20 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ int			main(void)
 		if (!(ft_getch(&env)))
 			break ;
 		i += 1;
-		usleep(800 * 100);
 	}
 	endwin();
 	return (0);

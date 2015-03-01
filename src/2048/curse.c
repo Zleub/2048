@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:56:39 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 02:16:04 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 02:42:20 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int			ft_getch(t_env *env)
 	f[2] = ft_left;
 	f[3] = ft_right;
 	c = getch();
+	dprintf(2, "%d ", c);
 	if (c == ESC)
 		return (0);
 	else if (c == UP || c == DOWN || c == LEFT || c == RIGHT)

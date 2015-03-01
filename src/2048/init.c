@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 01:47:13 by adebray           #+#    #+#             */
-/*   Updated: 2015/03/01 02:13:57 by adebray          ###   ########.fr       */
+/*   Updated: 2015/03/01 02:52:24 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		ft_init(void)
 	intrflush(stdscr, FALSE);
 	keypad(stdscr, TRUE);
 	curs_set(0);
-	timeout(-1);
+	timeout(80 * 100);
 }
 
 int			ft_welcome(t_env *env)
