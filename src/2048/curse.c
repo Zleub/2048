@@ -6,13 +6,21 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 22:56:39 by adebray           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2015/03/01 06:29:22 by adebray          ###   ########.fr       */
+=======
+/*   Updated: 2015/03/01 03:54:02 by adebray          ###   ########.fr       */
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <game.h>
 
+<<<<<<< HEAD
 static int	ft_test(int **array)
+=======
+int			ft_test(int **array)
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 {
 	int		(*f[4])(t_env *);
 	t_env	env_tmp;
@@ -30,7 +38,11 @@ static int	ft_test(int **array)
 		return (1);
 }
 
+<<<<<<< HEAD
 static int	ft_canplay(t_env *env)
+=======
+int			ft_canplay(t_env *env)
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 {
 	int		**array;
 	int		i;
@@ -54,15 +66,23 @@ static int	ft_canplay(t_env *env)
 	ret = ft_test(array);
 	i = 0;
 	while (i < SIZE)
+<<<<<<< HEAD
 	{
 		free(array[i]);
 		i += 1;
 	}
+=======
+		free(array[i]);
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 	free(array);
 	return (ret);
 }
 
+<<<<<<< HEAD
 static int	ft_getkey(t_env *env, int c)
+=======
+int			ft_getkey(t_env *env, int c)
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 {
 	int		(*f[4])(t_env *);
 
@@ -72,13 +92,21 @@ static int	ft_getkey(t_env *env, int c)
 	f[3] = ft_right;
 	if (f[c - 258](env))
 	{
+<<<<<<< HEAD
 		if (ft_check_win(env->array) && env->win == 0)
 			env->win = 2;
+=======
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 		if (!(ft_create_number(env)))
 			return (0);
 		else
 			return (1);
 	}
+<<<<<<< HEAD
+=======
+	if (ft_check_win(env->array))
+		env->win = 2;
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 	if (!(ft_canplay(env)))
 		return (0);
 	return (1);

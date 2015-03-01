@@ -34,7 +34,11 @@ all: makelib $(NAME)
 
 makelib: _libft _printf _2048
 
+<<<<<<< HEAD
 $(NAME): $(OBJ) $(HEADDIR)/game.h $(SRCDIR)/libft/libft.a $(SRCDIR)/ft_printf/libftprintf.a $(SRCDIR)/2048/lib2048.a
+=======
+$(NAME): $(OBJ) $(SRCDIR)/libft/libft.a $(SRCDIR)/ft_printf/libftprintf.a $(SRCDIR)/2048/lib2048.a
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 	@$(CC) $(CCFLAGS) $(HEADFLAG) -o $(NAME) $(SRC) $(LIBNCURSES) $(LIB2048)
 	@echo '!'
 	@echo "\033[32m•\033[0m $(NAME) compil: \033[32m$(NAME)\033[0m"

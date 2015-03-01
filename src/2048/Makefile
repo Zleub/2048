@@ -23,13 +23,21 @@ CCFLAGS		= -Werror -Wall -Wextra -Wuninitialized -I$(HEADDIR) -O3 -g
 
 all: $(NAME)
 
+<<<<<<< HEAD
 $(NAME):	$(OBJ) $(HEADDIR)/game.h
+=======
+$(NAME):	$(OBJ)
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 			@ar rc $@ $^
 			@ranlib $@
 			@echo '!'
 			@echo "\033[32m•\033[0m compil: \033[32m$(NAME)\033[0m"
 
+<<<<<<< HEAD
 %.o:		%.c $(HEADDIR)/game.h
+=======
+%.o:		%.c
+>>>>>>> b931d671db4e2d2bb403367939b1b51c01d67ea7
 			@echo '.''\c'
 			@$(CC) $(CCFLAGS) -I $(HEADDIR) -o $@ -c $<
 
