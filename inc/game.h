@@ -28,6 +28,7 @@ struct					s_env
 {
 	int					**array;
 	int					score;
+	int					win;
 };
 
 typedef struct s_vec4	t_vec4;
@@ -71,7 +72,6 @@ int						ft_welcome(t_env *env);
 
 int						ft_getch(t_env *env);
 void					ft_resize(int sig);
-void					ft_signal(void);
 void					ft_draw(t_env *env);
 
 /*
@@ -80,12 +80,13 @@ void					ft_draw(t_env *env);
 
 int						**ft_new(void);
 void					ft_print_array(int fd, int **array);
+int						ft_check_win(int **array);
 
 /*
 ** window.c
 */
 
 void					ft_win(t_vec4 *win, int **array, int offset);
-void					ft_score(t_vec4 *win, int score);
+void					ft_score(t_vec4 *win, t_env *env);
 
 #endif

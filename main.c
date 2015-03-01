@@ -72,7 +72,7 @@ int			ft_create_number(t_env *env)
 			env->array[x][y] = 4;
 		else
 			env->array[x][y] = 2;
-	return (1);
+		return (1);
 	}
 }
 
@@ -89,7 +89,7 @@ int			main(void)
 	if (!(env.array = ft_new()))
 		return (-1);
 	ft_init();
-	ft_signal();
+	signal(SIGWINCH, ft_resize);
 	ft_welcome(&env);
 	i = 0;
 	while (42)

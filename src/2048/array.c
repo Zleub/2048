@@ -48,3 +48,25 @@ void		ft_print_array(int fd, int **array)
 		j += 1;
 	}
 }
+
+int			ft_check_win(int **array)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < SIZE)
+	{
+		j = 0;
+		while (j < SIZE)
+		{
+			if (array[i][j] >= WIN_VALUE)
+			{
+				return (1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}

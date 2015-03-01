@@ -14,7 +14,7 @@
 
 void		ft_win(t_vec4 *win, int **array, int offset)
 {
-	WINDOW *caca;
+	WINDOW	*caca;
 
 	caca = newwin(HEIGHT, WIDTH, Y * HEIGHT + offset, X * WIDTH);
 	box(caca, '|', '~');
@@ -23,12 +23,19 @@ void		ft_win(t_vec4 *win, int **array, int offset)
 	wrefresh(caca);
 }
 
-void		ft_score(t_vec4 *win, int score)
+void		ft_score(t_vec4 *win, t_env *env)
 {
-	WINDOW *caca;
+	WINDOW	*caca;
 
 	caca = newwin(HEIGHT, WIDTH, Y * HEIGHT, X * WIDTH);
 	box(caca, '|', '~');
-	mvwprintw(caca, HEIGHT / 2, WIDTH / 2, "%d", score);
+	if (env->win == 2)
+		mvwprintw(caca, HEIGHT / 2, WIDTH / 2 - 9,
+			"You win with %d points. Continue ?", env->score);
+	else if (env->win == 1)
+		mvwprintw(caca, HEIGHT / 2, WIDTH / 2 - 9,
+			"You win with %d points.", env->score);
+	else
+		mvwprintw(caca, HEIGHT / 2, WIDTH / 2, "%d", env->score);
 	wrefresh(caca);
 }

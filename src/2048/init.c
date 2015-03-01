@@ -28,6 +28,7 @@ int			ft_welcome(t_env *env)
 {
 	srand((int)time(NULL));
 	env->score = 0;
+	env->win = 0;
 	mvwprintw(stdscr, LINES / 2, COLS / 2 - 15,
 		"Welcome to 2048. Press a key.\n");
 	wrefresh(stdscr);
@@ -39,4 +40,16 @@ int			ft_welcome(t_env *env)
 	ft_create_number(env);
 	ft_create_number(env);
 	return (1);
+}
+
+void		ft_resize(int sig)
+{
+	if (sig != SIGWINCH)
+	{
+		ft_printf("SIGNAL RECEIVED IN SIGWINCH NOT SIGWINCH\n");
+		return ;
+	}
+	endwin();
+	refresh();
+	clear();
 }

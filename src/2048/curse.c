@@ -12,13 +12,33 @@
 
 #include <game.h>
 
+int			ft_test(int **array)
+{
+	int		(*f[4])(t_env *);
+	t_env	env_tmp;
+
+	f[0] = ft_down;
+	f[1] = ft_up;
+	f[2] = ft_left;
+	f[3] = ft_right;
+	env_tmp.array = array;
+	env_tmp.score = 0;
+	if (!f[0](&env_tmp) && !f[1](&env_tmp)
+		&& !f[2](&env_tmp) && !f[3](&env_tmp))
+		return (0);
+	else
+		return (1);
+}
+
 int			ft_canplay(t_env *env)
 {
 	int		**array;
 	int		i;
 	int		j;
+	int		ret;
 
 	i = 0;
+	ret = 0;
 	array = (int **)malloc(sizeof(int *) * SIZE);
 	while (i < SIZE)
 	{
@@ -31,69 +51,53 @@ int			ft_canplay(t_env *env)
 		}
 		i += 1;
 	}
+	ret = ft_test(array);
+	i = 0;
+	while (i < SIZE)
+		free(array[i]);
+	free(array);
+	return (ret);
+}
 
-	t_env	env_tmp;
-
-	env_tmp.array = array;
-	env_tmp.score = 0;
-
+int			ft_getkey(t_env *env, int c)
+{
 	int		(*f[4])(t_env *);
 
 	f[0] = ft_down;
 	f[1] = ft_up;
 	f[2] = ft_left;
 	f[3] = ft_right;
-
-	if (!f[0](&env_tmp) && !f[1](&env_tmp)
-		&& !f[2](&env_tmp) && !f[3](&env_tmp))
+	if (f[c - 258](env))
+	{
+		if (!(ft_create_number(env)))
+			return (0);
+		else
+			return (1);
+	}
+	if (ft_check_win(env->array))
+		env->win = 2;
+	if (!(ft_canplay(env)))
 		return (0);
-	else
-		return (1);
-
+	return (1);
 }
 
 int			ft_getch(t_env *env)
 {
-	int		(*f[4])(t_env *);
 	int		c;
 
-	f[0] = ft_down;
-	f[1] = ft_up;
-	f[2] = ft_left;
-	f[3] = ft_right;
 	c = getch();
+	if (env->win == 2)
+	{
+		if (c == 'y')
+			env->win = 1;
+		else
+			return (0);
+	}
 	if (c == ESC)
 		return (0);
 	else if (c == UP || c == DOWN || c == LEFT || c == RIGHT)
-	{
-		if (f[c - 258](env))
-		{
-			if (!(ft_create_number(env)))
-				return (0);
-			else
-				return (1);
-		}
-		if (!(ft_canplay(env)))
-			return (0);
-	}
+		return (ft_getkey(env, c));
 	return (1);
-}
-
-void		ft_resize(int sig)
-{
-	if (sig != SIGWINCH)
-	{
-		ft_printf("SIGNAL RECEIVED IN SIGWINCH NOT SIGWINCH\n");
-		return ;
-	}
-	endwin();
-	refresh();
-	clear();
-}
-
-void		ft_signal(void)
-{
-	signal(SIGWINCH, ft_resize);
 }
 
 void		ft_draw(t_env *env)
@@ -104,7 +108,7 @@ void		ft_draw(t_env *env)
 	win.y = 0;
 	win.width = COLS;
 	win.height = 5;
-	ft_score(&win, env->score);
+	ft_score(&win, env);
 	win.width = COLS / SIZE;
 	win.height = (LINES - 5) / SIZE;
 	while (win.x < SIZE)
